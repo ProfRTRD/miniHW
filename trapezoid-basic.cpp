@@ -1,3 +1,5 @@
+//ZAIR VALENTIN BARETO TORRES
+//JUAN JOSE GONZALEZ FLOREZ
 #include <iostream>
 #include <cmath>
 #include <cstdlib>
