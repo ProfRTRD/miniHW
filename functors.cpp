@@ -25,11 +25,11 @@ struct functor_g
 //functor H
 struct functor_h
 {
-  double L=0.2,rho=1.23,D;
+  double fr, L=0.2,rho=1.23,D;
   int V=45;
   double operator()(double f)
   {
-    return f*(L*rho*V*V/2*D);
+    return (fr*L*rho*V*V/2*D);
   }
 };
 
@@ -46,6 +46,7 @@ int main (int argc, char *argv[])
   fout.setf(std::ios::scientific); 
   fout.precision(15);
 
+  functor_f fr;
   //D
   double Dn=0;
   int n= 30;
@@ -61,9 +62,10 @@ int main (int argc, char *argv[])
   
     functor_h H;
     H.D = Dn;
-    double dp= H(root);
-
-    fout << "\t" << Dn << "\t" << dp << "\n";
+    H.fr= H(root);
+    
+    
+    fout << "\t" << Dn << "\t" <<H.fr  << "\n";
     }
   fout.close();
 }
